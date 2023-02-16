@@ -2,8 +2,8 @@
 import random, math, pygame
 winwidth = 800  # width of window
 winheight = 600  # height of window
-background = (255,255,255)
-widthX = 200
+background = (255,255,255) #white 
+widthX = 200 
 positionX = winwidth / 2
 positionY = winheight / 1.2
 linewidth = 5
@@ -28,7 +28,7 @@ pygame.event.set_allowed([pygame.QUIT, pygame.KEYUP, pygame.KEYDOWN])
 screen.fill(background)
 leftXVals = {}
 for i in range(0, int(round(5*widthX/3, 0))):
-    leftXVals[i] = round(5/3*i)
+    leftXVals[i] = round((5/3)*i)
     print(str(i + widthX) + ", " + str(leftXVals[i]))
     pygame.draw.circle(
         screen, (0,0,0), (i + widthX, leftXVals[i]), 5
