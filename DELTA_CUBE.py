@@ -25,6 +25,14 @@ clock = pygame.time.Clock()
 pygame.init()
 pygame.display.set_caption("DELTA CUBE")
 pygame.event.set_allowed([pygame.QUIT, pygame.KEYUP, pygame.KEYDOWN])
+screen.fill(background)
+leftXVals = {}
+for i in range(0, int(round(5*widthX/3, 0))):
+    leftXVals[i] = round(5/3*i)
+    print(str(i + widthX) + ", " + str(leftXVals[i]))
+    pygame.draw.circle(
+        screen, (0,0,0), (i + widthX, leftXVals[i]), 5
+    )
 
 quit = False
 while not quit:
@@ -39,7 +47,6 @@ while not quit:
                 break
     if quit:
         break
-    screen.fill(background)
     #1 Bottom Right
     pygame.draw.line(
         screen, (0, 0, 0), (px3, py1), (px5, py2), (linewidth)
