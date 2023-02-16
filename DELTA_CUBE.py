@@ -39,36 +39,20 @@ screen.fill(background)
 leftXVals = {}
 for i in range(int(py6), int(py2)):
     leftXVals[i] = round(3/5*(i-py6))
-    #Draw line for left dictionary
-    # pygame.draw.circle(
-    #     screen, (0,0,0), (px3 - leftXVals[i], i), 5
-    # )
 print(leftXVals)
 leftXValsLow = {}
 for i in range(int(py3), int(py2)):
     leftXValsLow[i] = round(3*(i-py3))
-    #Draw line for left dictionary
-    # pygame.draw.circle(
-    #     screen, (0,0,0), (px3 - leftXValsLow[i], i), 5
-    # )
 print(leftXValsLow)
 
 #Right Dictionary
 rightXVals = {}
 for i in range(int(py6), int(py2)):
     rightXVals[i] = round(3/5*(i-py6))
-    #Draw line for right dictionary
-    # pygame.draw.circle(
-    #     screen, (0,0,0), (px3 + rightXVals[i], i), 5
-    # )
 print(rightXVals)
 rightXValsLow = {}
 for i in range(int(py3), int(py2)):
     rightXValsLow[i] = round(3*(i-py3))
-    #Draw line for right dictionary
-    # pygame.draw.circle(
-    #     screen, (0,0,0), (px3 + rightXValsLow[i], i), 5
-    # )
 print(rightXValsLow)
 
 def radians(degrees):
