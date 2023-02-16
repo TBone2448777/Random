@@ -3,8 +3,8 @@
 import random, math, pygame
 winwidth = 800  # width of window
 winheight = 600  # height of window
-background = (255,255,255)
-widthX = winheight/2.5
+background = (255,255,255) #white 
+widthX = winheight/2.5 
 positionX = winwidth / 2
 positionY = winheight / 2 + widthX
 linewidth = 5
