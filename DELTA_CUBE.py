@@ -32,7 +32,11 @@ screen.fill(background)
 
 #Left Dictionary
 leftXVals = {}
+<<<<<<< HEAD
 for i in range(0, int(widthX)): 
+=======
+for i in range(0, int(py3-py6)):
+>>>>>>> 45b383a58ee9aa7c32971a06d5b3642e1ec2670d
     leftXVals[i] = round(5/3*i)
     #Draw line for left dictionary
     pygame.draw.circle(
@@ -73,14 +77,14 @@ class NodeL:
     def reflect(self):
         """reflect off a boundary of the screen"""
         #px3 - i, leftXVals[i] + py6
-        print(int(self.y - py6))
-        print(leftXVals[int(self.y - py6)])
+        # print(int(self.x - px1))
+        # print(leftXVals[int(self.x - px1)])
         if self.x > px3:  # right edge
             self.x = 2 * (px3) - self.x
             self.angle = -self.angle
-        elif self.x < leftXVals[int(self.y - py6)]:  # left edge
-            self.x = 2 * px1 - self.x
-            self.angle = -self.angle
+        # elif self.x < leftXVals[int(self.x - px1)]:  # left edge
+        #     self.x = 2 * px1 - self.x
+        #     self.angle = -self.angle
         if self.y > py2:  # bottom edge
             self.y = 2 * (py2) - self.y
             self.angle = math.pi - self.angle
