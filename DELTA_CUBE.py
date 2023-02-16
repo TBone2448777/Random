@@ -32,17 +32,17 @@ screen.fill(background)
 
 #Left Dictionary
 leftXVals = {}
-for i in range(0, int(widthX)): 
-    leftXVals[i] = round(5/3*i)
+for i in range(int(py6), int(py2)):
+    leftXVals[i] = round(3/5*(i-py6))
     #Draw line for left dictionary
     pygame.draw.circle(
-        screen, (0,0,0), (px3 - i, leftXVals[i] + py6), 5
+        screen, (0,0,0), (px3 - leftXVals[i], i), 5
     )
+print(leftXVals)
 
 def radians(degrees):
     """convert degrees to radians"""
     return math.pi / 180 * degrees
-
 
 def blue(scale=0.8):
     """return the rgb of a shade of blue"""
@@ -56,7 +56,7 @@ class NodeL:
     def __init__(self, x, y, speed, angle):
         self.x = x
         self.y = y
-        self.speed = speed
+        self.speed = 2
         self.angle = angle
         self.dx = math.sin(self.angle) * self.speed
         self.dy = math.cos(self.angle) * self.speed
@@ -72,21 +72,18 @@ class NodeL:
 
     def reflect(self):
         """reflect off a boundary of the screen"""
-        #px3 - i, leftXVals[i] + py6
-        # print(int(self.x - px1))
-        # print(leftXVals[int(self.x - px1)])
         if self.x > px3:  # right edge
             self.x = 2 * (px3) - self.x
             self.angle = -self.angle
-        # elif self.x < leftXVals[int(self.x - px1)]:  # left edge
-        #     self.x = 2 * px1 - self.x
-        #     self.angle = -self.angle
-        if self.y > py2:  # bottom edge
-            self.y = 2 * (py2) - self.y
-            self.angle = math.pi - self.angle
-        elif self.y < py6:  # top edge
-            self.y = 2 * py6 - self.y
-            self.angle = math.pi - self.angle
+        elif self.x < px3 - leftXVals[int(self.y)]:  # left edge
+            self.x = 2 * (px3 - leftXVals[int(self.y)]) - self.x
+            self.angle = -self.angle
+        if self.y > py2 - 2:  # bottom edge
+            self.y = 2 * (py2 - 2) - self.y
+            self.angle = math.pi -self.angle
+        elif self.y < py6 + 2:  # top edge
+            self.y = 2 * (py6 + 2) - self.y
+            self.angle = math.pi -self.angle
         self.dx = math.sin(self.angle) * self.speed
         self.dy = math.cos(self.angle) * self.speed
 
@@ -103,7 +100,6 @@ for i in range(num_nodes):
     speed = random.randint(150, 200) / 600
     angle = radians(random.randint(0, 359))
     nodesL.append(NodeL(x, y, speed, angle))
-
 
 quit = False
 while not quit:
