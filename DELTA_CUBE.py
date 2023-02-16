@@ -32,11 +32,7 @@ screen.fill(background)
 
 #Left Dictionary
 leftXVals = {}
-<<<<<<< HEAD
 for i in range(0, int(widthX)): 
-=======
-for i in range(0, int(py3-py6)):
->>>>>>> 45b383a58ee9aa7c32971a06d5b3642e1ec2670d
     leftXVals[i] = round(5/3*i)
     #Draw line for left dictionary
     pygame.draw.circle(
