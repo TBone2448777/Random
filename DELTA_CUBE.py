@@ -32,8 +32,8 @@ screen.fill(background)
 
 #Left Dictionary
 leftXVals = {}
-for i in range(0, int(widthX)): 
-    leftXVals[i] = round(5/3*i)
+for i in range(int(py6), int(py2)):
+    leftXVals[i] = round(3/5*(i-py6))
     #Draw line for left dictionary
     pygame.draw.circle(
         screen, (0,0,0), (px3 - leftXVals[i], i), 5
@@ -43,7 +43,6 @@ print(leftXVals)
 def radians(degrees):
     """convert degrees to radians"""
     return math.pi / 180 * degrees
-
 
 def blue(scale=0.8):
     """return the rgb of a shade of blue"""
@@ -101,7 +100,6 @@ for i in range(num_nodes):
     speed = random.randint(150, 200) / 600
     angle = radians(random.randint(0, 359))
     nodesL.append(NodeL(x, y, speed, angle))
-
 
 quit = False
 while not quit:
