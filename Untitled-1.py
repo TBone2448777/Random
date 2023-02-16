@@ -4,9 +4,9 @@ import random, math, pygame
 winwidth = 800  # width of window
 winheight = 600  # height of window
 background = (255,255,255)
-widthX = 200
+widthX = winheight/2.5
 positionX = winwidth / 2
-positionY = winheight / 1.2
+positionY = winheight / 2 + widthX
 
 px1 = positionX - widthX
 px2 = positionX-93*widthX/300
@@ -25,6 +25,14 @@ clock = pygame.time.Clock()
 pygame.init()
 pygame.display.set_caption("Triangles v1")
 pygame.event.set_allowed([pygame.QUIT, pygame.KEYUP, pygame.KEYDOWN])
+screen.fill(background)
+leftXVals = {}
+for i in range(0, int(round(5*widthX/3, 0))):
+    leftXVals[i] = round(5/3*i)
+    print(str(i + widthX) + ", " + str(leftXVals[i]))
+    pygame.draw.circle(
+        screen, (0,0,0), (i + widthX, leftXVals[i]), 5
+    )
 
 quit = False
 while not quit:
@@ -39,7 +47,7 @@ while not quit:
                 break
     if quit:
         break
-    screen.fill(background)
+
     #1 Bottom Right
     pygame.draw.line(
         screen, (0, 0, 0), (px3, py1), (px5, py2)
