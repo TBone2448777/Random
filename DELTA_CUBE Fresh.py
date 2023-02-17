@@ -5,11 +5,12 @@ winwidth = 1200
 winheight = 900
 background = (200, 200, 200)
 lineColor = (0, 0, 0)
+midColor = (100, 100, 100)
 linewidth = 5
 num_nodesL = 100
-num_nodesR = 200
+num_nodesR = 100
 node_radius = 1
-thresh = 900
+thresh = 1800
 
 #Based off Above Changables- Don't Touch
 widthX = winheight/2.5 
@@ -24,13 +25,13 @@ py1, py2, py3, py4, py5, py6= positionY, positionY-(widthX/3), positionY - 2*wid
 #Colors!
 def color1(scale=0.8):
     num = int(scale * 255)
-    return (255-num, 255-num, 255-num)
+    return (255-num, 255-num, 255-num//3)
 def color2(scale=0.8):
     num = int(scale * 255)
     num *= 2
     if num >= 255:
         num = 255
-    return (255-num, 255-num, 255-num)
+    return (255-num, 255-num, 255-num//2)
 
 #Begin Pygame
 screen = pygame.display.set_mode((winwidth, winheight))
@@ -135,7 +136,7 @@ nodesL = []
 for i in range(num_nodesL):
     x = random.randint(int(round(px2, 0)) + node_radius, int(round(px3, 0)) - node_radius)
     y = random.randint(int(round(py4, 0)) + node_radius, int(round(py3, 0)) - node_radius)
-    speed = random.randint(150, 200) / 600
+    speed = random.randint(150, 200) / 500
     angle = math.pi / 180 *(random.randint(0, 359))
     nodesL.append(NodeL(x, y, speed, angle))
 
@@ -144,7 +145,7 @@ nodesR = []
 for i in range(num_nodesR):
     x = random.randint(int(round(px3, 0)) - node_radius, int(round(px4, 0)) + node_radius)
     y = random.randint(int(round(py4, 0)) + node_radius, int(round(py3, 0)) - node_radius)
-    speed = random.randint(150, 200) / 600
+    speed = random.randint(150, 200) / 400
     angle = math.pi / 180 *(random.randint(0, 359))
     nodesR.append(NodeR(x, y, speed, angle))
 
@@ -198,6 +199,10 @@ while not quit:
                     )
             else:
                 break
+    # 9 Mid
+    pygame.draw.line(
+        screen, (midColor), (px3, py3), (px3, py6), (linewidth)
+    )
     #1 Bottom Right
     pygame.draw.line(
         screen, (lineColor), (px3, py1), (px5, py2), (linewidth)
@@ -230,10 +235,6 @@ while not quit:
     pygame.draw.line(
         screen, (lineColor), (px3, py3), (px1, py2), (linewidth)
     )
-    # 9 Mid
-    pygame.draw.line(
-        screen, (lineColor), (px3, py3), (px3, py6), (linewidth)
-    )
     # 10 Right Diagonal
     pygame.draw.line(
         screen, (lineColor), (px5, py2), (px3, py6), (linewidth)
@@ -249,6 +250,21 @@ while not quit:
     #13 High Mid Right
     pygame.draw.line(
         screen, (lineColor), (px5, py5), (px4, py4), (linewidth)
+    )
+    #To round out corners I tossed in a few circles. They are at two most left and two most right
+    #points of the delta cube.
+    pygame.draw.circle(
+        screen, (lineColor), (px1, py2), linewidth/2
+    )
+    pygame.draw.circle(
+        screen, (lineColor), (px1, py5), linewidth/2
+    )
+    #For some reason this one needed a different radius. Not sure why.
+    pygame.draw.circle(
+        screen, (lineColor), (px5, py2), linewidth/1.6
+    )
+    pygame.draw.circle(
+        screen, (lineColor), (px5, py5), linewidth/2
     )
     clock.tick(60)
     pygame.display.flip()
