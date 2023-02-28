@@ -4,8 +4,8 @@ import random, math, pygame
 winwidth = 1000
 winheight = 250
 background = (255, 255, 255)
-jumptime = 60
-jumpheight = 3
+jumptime = 40
+jumpheight = 4
 xpos = winwidth/8
 ypos = winheight-winheight/3.4
 x=3
@@ -41,7 +41,7 @@ while not quit:
     #     screen, (0, 0, 0), (winwidth / 8, winheight - winheight / 8 - characterY, winwidth / 25, winheight / 8), 0
     # )
     pygame.draw.polygon(
-        screen, (0, 0, 0), ((xpos+15*x, ypos-characterY), (xpos+19*x, ypos-characterY+2*x), (xpos+20*x, ypos-characterY+3*x), (xpos+21*x, ypos-characterY+5*x), (xpos+21*x, ypos-characterY+6*x), (xpos+20*x, ypos-characterY+9*x), (xpos+18*x, ypos-characterY+10*x), (xpos+17*x, ypos-characterY+10*x), (xpos+18*x, ypos-characterY+12*x), (xpos+18*x, ypos-characterY+14*x), (xpos+19*x, ypos-characterY+16*x), (xpos+19*x, ypos-characterY+20*x), (xpos+18*x, ypos-characterY+22*x), (xpos+17*x, ypos-characterY+22*x), (xpos+17*x, ypos-characterY+23*x), (xpos+16*x, ypos-characterY+23*x), (xpos+16*x, ypos-characterY+24*x), (xpos+13*x, ypos-characterY+24*x), (xpos+13*x, ypos-characterY+22*x), (xpos+9*x, ypos-characterY+22*x), (xpos+4*x, ypos-characterY+23*x), (xpos+x, ypos-characterY+22*x), (xpos, ypos-characterY+21*x), (xpos, ypos-characterY+17*x), (xpos+x, ypos-characterY+19*x), (xpos+4*x, ypos-characterY+20*x), (xpos+9*x, ypos-characterY+16*x), (xpos+11*x, ypos-characterY+9*x), (xpos+10*x, ypos-characterY+8*x), (xpos+10*x, ypos-characterY+5*x), (xpos+11*x, ypos-characterY+2*x))
+        screen, (0, 0, 0), ((xpos+15*x, ypos-characterY), (xpos+19*x, ypos-characterY+2*x), (xpos+20*x, ypos-characterY+3*x), (xpos+21*x, ypos-characterY+5*x), (xpos+21*x, ypos-characterY+6*x), (xpos+20*x, ypos-characterY+9*x), (xpos+18*x, ypos-characterY+10*x), (xpos+17*x, ypos-characterY+10*x), (xpos+18*x, ypos-characterY+12*x), (xpos+19*x, ypos-characterY+11.5*x), (xpos+20*x, ypos-characterY+11.5*x), (xpos+20.5*x, ypos-characterY+12*x), (xpos+20.5*x, ypos-characterY+13*x), (xpos+19*x, ypos-characterY+13*x), (xpos+18*x, ypos-characterY+14*x), (xpos+19*x, ypos-characterY+16*x), (xpos+19*x, ypos-characterY+20*x), (xpos+18*x, ypos-characterY+22*x), (xpos+17*x, ypos-characterY+22*x), (xpos+17*x, ypos-characterY+23*x), (xpos+16*x, ypos-characterY+23*x), (xpos+16*x, ypos-characterY+24*x), (xpos+13*x, ypos-characterY+24*x), (xpos+13*x, ypos-characterY+22*x), (xpos+9*x, ypos-characterY+22*x), (xpos+4*x, ypos-characterY+23*x), (xpos+x, ypos-characterY+22*x), (xpos, ypos-characterY+21*x), (xpos, ypos-characterY+17*x), (xpos+x, ypos-characterY+19*x), (xpos+4*x, ypos-characterY+20*x), (xpos+9*x, ypos-characterY+16*x), (xpos+11*x, ypos-characterY+9*x), (xpos+10*x, ypos-characterY+8*x), (xpos+10*x, ypos-characterY+5*x), (xpos+11*x, ypos-characterY+2*x))
     )
     # Jump Animation
     if jumpi > jumptime/2:
